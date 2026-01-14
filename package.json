@@ -1,0 +1,9 @@
+{
+  "name": "trivy-nil-pointer-test",
+  "version": "1.0.0",
+  "description": "Test repo for SAAS-31508 nil pointer fix",
+  "dependencies": {
+    "express": "^4.18.0"
+  }
+}
+
