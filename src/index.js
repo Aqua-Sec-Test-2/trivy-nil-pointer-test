@@ -2,6 +2,7 @@ const express = require('express');
 const app = express();
 
 // Test branch to trigger workflow and reproduce nil pointer bug
+// Updated: Testing with feature flags configured
 // This will trigger SAST findings
 app.get('/api/user/:id', (req, res) => {
   const userId = req.params.id;
