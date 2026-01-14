@@ -14,7 +14,7 @@ jobs:
       - name: Checkout code
         uses: actions/checkout@v4
 
-      - name: Run Aqua scanner (OLD VERSION - will fail with nil pointer)
+      - name: Run Aqua scanner (NEW VERSION - will PASS without nil pointer)
         uses: docker://aquasec/aqua-scanner:dev
         # TODO: After fix is released, change to: aquasec/aqua-scanner:v0.214.0
         with:
