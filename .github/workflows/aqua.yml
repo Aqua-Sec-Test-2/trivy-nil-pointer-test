@@ -1,13 +1,14 @@
-name: Aqua Scanner Test
+name: "Test: SAAS-31508 Nil Pointer Fix"
 
 on:
-  pull_request:
-    types: [opened, edited, reopened, synchronize]
   push:
     branches: [main]
+  pull_request:
+    branches: [main]
+  workflow_dispatch:
 
 jobs:
-  aqua-scan:
+  scan:
     runs-on: ubuntu-latest
     steps:
       - name: Checkout code
@@ -22,10 +23,7 @@ jobs:
           AQUA_KEY: ${{ secrets.AQUA_KEY }}
           AQUA_SECRET: ${{ secrets.AQUA_SECRET }}
           GITHUB_TOKEN: ${{ github.token }}
-          TRIVY_RUN_AS_PLUGIN: "aqua"
-          TRIVY_USERNAME: ${{ secrets.TRIVY_USERNAME }}
-          TRIVY_PASSWORD: ${{ secrets.TRIVY_PASSWORD }}
-          TRIVY_DB_REPOSITORY: registry.aquasec.com/trivy-db:2
-          TRIVY_JAVA_DB_REPOSITORY: registry.aquasec.com/trivy-java-db:1
-          TRIVY_CHECKS_BUNDLE_REPOSITORY: registry.aquasec.com/trivy-checks:1
+          AQUA_URL: https://api.dev.supply-chain.cloud.aquasec.com
+          CSPM_URL: https://stage.api.cloudsploit.com
+          TRIVY_RUN_AS_PLUGIN: 'aqua'
 
