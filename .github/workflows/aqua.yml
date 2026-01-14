@@ -18,7 +18,7 @@ jobs:
         uses: docker://aquasec/aqua-scanner:v0.213.0
         # TODO: After fix is released, change to: aquasec/aqua-scanner:v0.214.0
         with:
-          args: trivy fs --package-json --sast --debug --scanners misconfig,vuln,secret .
+          args: trivy fs --package-json --sast --scanners misconfig,vuln,secret .
         env:
           AQUA_KEY: ${{ secrets.AQUA_KEY }}
           AQUA_SECRET: ${{ secrets.AQUA_SECRET }}
