@@ -15,7 +15,7 @@ jobs:
         uses: actions/checkout@v4
 
       - name: Run Aqua scanner (OLD VERSION - will fail with nil pointer)
-        uses: docker://aquasec/aqua-scanner:v0.213.0
+        uses: docker://aquasec/aqua-scanner:dev
         # TODO: After fix is released, change to: aquasec/aqua-scanner:v0.214.0
         with:
           args: trivy fs --package-json --sast --scanners misconfig,vuln,secret .
